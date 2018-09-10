@@ -39,6 +39,7 @@ end;
 
         [InDataSet]
         ShowMaxField: Boolean;
+        
         [InDataSet]
         ShowType: Boolean;
 
