@@ -1,7 +1,8 @@
-page 123456701"CSD Seminar Card"
+page 123456701 "CSD Seminar Card"
 // CSD1.00 - 2018-01-01 - D. E. Veloper
 // Chapter 5 - Lab 2-4 & Lab 2-5
-
+// Chapter 8 - Lab 1-2
+// - Added Action
 {
     PageType = Card;
     SourceTable = "CSD Seminar";
@@ -76,15 +77,16 @@ page 123456701"CSD Seminar Card"
             {
                 action("Co&mments")
                 {
-                    RunObject=page"CSD Seminar Comment Sheet";
+                    Caption='Co&mments';
+                    RunObject=page "CSD Seminar Comment Sheet";
                     RunPageLink = "Table Name"=const(Seminar),"No."=field("No.");
                     Image = Comment;
                     Promoted = true;
                     PromotedIsBig = true;
                     PromotedOnly = true;
                 }
-
-                action("ledger enties")
+                // >> Lab 8-2
+                action("Ledger Entries")
                 {
                     Caption='Ledger Entries';
                     RunObject=page "CSD Seminar Ledger Entries";
@@ -94,7 +96,7 @@ page 123456701"CSD Seminar Card"
                     ShortcutKey="Ctrl+F7";
                     Image=WarrantyLedger;
                 }
-
+                // >> Lab 8-2
                 action("&Registrations")
                 {
                     Caption='&Registrations';
@@ -104,21 +106,24 @@ page 123456701"CSD Seminar Card"
                     Promoted=true;
                     PromotedCategory=Process;
                 }
+                // << Lab 8-2
             }
         }
-
+        // >> Lab 8-2
         area(Processing)
         {
-            action("seminar Registration")
+            action("Seminar Registration")
             {
+                Caption='Seminar Registration';
                 RunObject= page "CSD Seminar Registration";
                 RunPageLink="Seminar No."=field("No.");
-                RunPageMode=create;
-                image=NewTimesheet;
+                RunPageMode=Create;
+                Image=NewTimesheet;
                 Promoted=true;
                 PromotedCategory=New;
 
             }
         }
+        // << Lab 8-2
     }
 }
