@@ -346,6 +346,10 @@ table 123456710 "CSD Seminar Reg. Header"
 
     trigger OnInsert();
     begin
+        if GetFilter("Seminar No.") <> '' then 
+          if GetRangeMin("Seminar No.") = GetRangeMax("Seminar No.") then
+            validate("Seminar No.",GetRangeMin("Seminar No."));
+
         if "No." = '' then begin
             SeminarSetup.Get;
             SeminarSetup.TestField("Seminar Registration Nos.");
