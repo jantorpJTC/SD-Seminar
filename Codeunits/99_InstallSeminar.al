@@ -15,7 +15,7 @@ codeunit 123456799 InstallSeminar
     var
         NoSerie: Record "No. Series";
         NoSerieLine: Record "No. Series Line";
-        
+        SeminarSetup: Record "CSD Seminar Setup";
         SourceCodeSetup: Record "Source Code Setup";
         SourceCode: Record "Source Code";
     begin
@@ -65,7 +65,7 @@ codeunit 123456799 InstallSeminar
         SourceCode.Code := 'SEMINAR';
         if SourceCode.Insert then;
         SourceCodeSetup.get;
-        //SourceCodeSetup."CSD Seminar" := 'SEMINAR';
+        SourceCodeSetup."CSD Seminar" := 'SEMINAR';
         SourceCodeSetup.modify;
      end;
     local procedure CreateSeminar();
@@ -101,5 +101,4 @@ codeunit 123456799 InstallSeminar
 
     var
         SetupExists: Boolean;
-        SeminarSetup: Record "CSD Seminar Setup";
 }
