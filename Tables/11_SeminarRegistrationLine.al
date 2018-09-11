@@ -3,23 +3,20 @@ table 123456711 "CSD Seminar Registration Line"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 1-5
     //     - Created new table
-    Caption='Seminar Registration Line';
+
 
     fields
     {
         field(1;"Document No.";Code[20])
         {
-            Caption='Document No.';
             TableRelation = "CSD Seminar Reg. Header";
         }
         field(2;"Line No.";Integer)
         {
-            Caption='Line No.';
         }
         field(3;"Bill-to Customer No.";Code[20])
         {
             TableRelation = Customer;
-            Caption='Bill-to Customer No.';
 
             trigger OnValidate();
             begin
@@ -36,7 +33,6 @@ table 123456711 "CSD Seminar Registration Line"
         field(4;"Participant Contact No.";Code[20])
         {
             TableRelation = Contact;
-            Caption='Participant Contact No.';
 
             trigger OnLookup();
             begin
@@ -72,33 +68,27 @@ table 123456711 "CSD Seminar Registration Line"
         }
         field(5;"Participant Name";Text[50])
         {
-            Caption='Participant Name';
             CalcFormula = Lookup(Contact.Name where ("No."=Field("Participant Contact No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(6;"Registration Date";Date)
         {
-            Caption='Registration Date';
             Editable = false;
         }
         field(7;"To Invoice";Boolean)
         {
-            Caption='To Invoice';
             InitValue = true;
         }
         field(8;Participated;Boolean)
         {
-            Caption='Participated';
         }
         field(9;"Confirmation Date";Date)
         {
-            Caption='Confirmation Date';
             Editable = false;
         }
         field(10;"Seminar Price";Decimal)
         {
-            Caption='Seminar Price';
             AutoFormatType = 2;
 
             trigger OnValidate();
@@ -108,7 +98,6 @@ table 123456711 "CSD Seminar Registration Line"
         }
         field(11;"Line Discount %";Decimal)
         {
-            Caption='Line Discount %';
             DecimalPlaces = 0:5;
             MaxValue = 100;
             MinValue = 0;
@@ -126,7 +115,6 @@ table 123456711 "CSD Seminar Registration Line"
         }
         field(12;"Line Discount Amount";Decimal)
         {
-            Caption='Line Discount Amount';
             AutoFormatType = 1;
 
             trigger OnValidate();
@@ -142,7 +130,6 @@ table 123456711 "CSD Seminar Registration Line"
         }
         field(13;Amount;Decimal)
         {
-            Caption='Amount';
             AutoFormatType = 1;
 
             trigger OnValidate();
@@ -161,7 +148,6 @@ table 123456711 "CSD Seminar Registration Line"
         }
         field(14;Registered;Boolean)
         {
-            Caption='Registered';
             Editable = false;
         }
     }
